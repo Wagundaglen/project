@@ -1,0 +1,27 @@
+<!-- blog/templates/blog/subscribe.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscribe</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Subscribe to Our Blog</h1>
+    </header>
+    <main>
+        <!-- Embedding Image -->
+        <img src="https://howtostartanllc.com/images/business-ideas/business-idea-images/fast-food.jpg" alt="Fast Food">
+
+        <!-- Subscriber Form -->
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Subscribe</button>
+        </form>
+    </main>
+</body>
+</html>
+

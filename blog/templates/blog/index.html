@@ -1,0 +1,39 @@
+<!-- blog/templates/blog/index.html -->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Wagunda Fast Food Restaurant </h1>
+        <!-- Include the image link here -->
+        <img src="{% static 'images/fast-food.jpg' %}" alt="Fast Food Image">
+    </header>
+    <main>
+        <!-- Display Blog Posts -->
+        <div class="blog-posts">
+            {% for post in posts %}
+                <div class="post">
+                    <h2>{{ post.title }}</h2>
+                    <p>{{ post.content }}</p>
+                    <small>{{ post.created_at }}</small>
+                </div>
+            {% endfor %}
+        </div>
+
+        <!-- Subscriber Form -->
+        <h2>Subscribe</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Subscribe</button>
+        </form>
+    </main>
+</body>
+</html>
